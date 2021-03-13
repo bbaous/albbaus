@@ -4,7 +4,7 @@ LotteryTickets=10
 #Number of my tickets
 numberOfLotteries=1
 #Number of  winning tickets
-LotterTicketsPicked=10
+LotteryTicketsPicked=10
 #Number of lotter draws
 LotterDraws=100
 #A random regerator returning  pseudorandom set numbers within a specific range  
@@ -19,4 +19,4 @@ def draw(lotteryDaw,MyLottery):
 	return False
  
 for draws in range(0,LotterDraws,1):
-	print ("Draw number %d and result is %s " %((draws+1),draw(randomGenerator(LotteryTickets, LotterTicketsPicked),randomGenerator(LotteryTickets, numberOfLotteries))))
+	print ("Draw number %d and result is %s " %((draws+1),draw(randomGenerator(LotteryTickets, LotteryTicketsPicked),randomGenerator(LotteryTickets, numberOfLotteries))))
