@@ -1,4 +1,3 @@
-#[Guide: my complete answer = 25 lines long]
 #Your task is to use the random library to help simulate a lottery competition.
 #In this competition there are 10,000 tickets, each with a unique ID number. Every week there is one 
 #draw, and there are 10 winners (ie. 10 winning numbers are picked).
@@ -19,10 +18,23 @@
 	
 # seed the pseudorandom number generator
 from random import seed,random,randint,randrange
-# seed random number generator
-seed(1)
-for _ in range(10):
-	value = randrange(10000)
-	print(value)
-	value = randint(0, 10000)
-	print(value)
+
+def matching(rangeNumbers, returnNumbers, matchingLottery):
+	randomGenerator(1000, 10,)
+	return 
+
+def randomGenerator(rangeNumbers, returnNumbers):
+    seed(1)
+    for lottery in range(returnNumbers):
+	    #value = randrange(10000)
+	    #print(value)
+	    #value = randint(0, rangeNumbers)
+	    print('The winning lottery %d is %d' %(lottery+1, randint(0, rangeNumbers)))
+		returnValues=['']
+		returnValues.append(randint(0, rangeNumbers)) 
+	    print(returnValues)
+    return 0
+
+
+
+randomGenerator(1000, 10,)
