@@ -1,27 +1,28 @@
 import numpy as nm
 import pandas as pd
-from pandas.core.indexes.range import RangeIndex
-from datetime import datetime
-from time import time
+import matplotlib.pyplot as plt
 
-#stationData = nm.loadtxt('./suttonboningtondata_moodle-org.csv',comments='#',delimiter=",", skiprows=3)
-#stationData.shape
 stationData = pd.read_csv('suttonboningtondata_moodle.csv',skiprows=3)
-stationData.shape
-print(stationData.shape)
+stationData.shape.index
+print("Total number of items (rows x columns) are  : " + str(stationData.shape))
 tmin= stationData["tmin"]
+del(tmin[0])
+min=min(tmin,key=lambda x:float(x)) 
+print("The min value of minimum temperature is     : " + str(min)) 
+sun=stationData["sun"]
 
-#print(tmin[:10]) 
+year= stationData["yyyy"]
+del(year[0])
+tmax=stationData["tmax"]
+del(tmax[0])
+yearMax=()
+print("Max temperatures of year 2017") 
+for index in stationData.values:
+    if index[0]==2017.0:
+       yearMax=(index[0], index[2])
+       print (index[0], index[2])
 
-print(tmin.min())
-#rain = stationData["rain"]
-#year= stationData["yyyy"]
-#mm=stationData["mm"]
-#sun=stationData["tmin"]
 
-
-
-#stationData["sun"]= pd.to_datetime(stationData["sun"], format='%Y%m%d')  
-  
-# printing dataframe  
-#print(stationData["sun"]) 
+plt.figure()  
+plt.plot(yearMax, color='red', lw=2, label='Tmax')
+    
