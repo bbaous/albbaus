@@ -1,7 +1,6 @@
 print ("Fibonacci sequence:")
 # first two terms
 n1, n2 = 0, 1
-count = 0
 nth=0
 stopCondition=1000
 #Perform a while true loop until my main variable n1 becomes 
@@ -12,7 +11,7 @@ while True:
     # update values
     n1 = n2
     n2 = nth
-    count += 1
+    #Break id n1 is bigger than stopCondition and print the last nunmber
     if n1>stopCondition:
        print(n1)
        break
