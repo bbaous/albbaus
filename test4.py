@@ -9,6 +9,8 @@ LotteryTicketsPicked=10
 #Number of lotter draws, ie how many times I draw the lottery and I pick 
 # the LotteryTicketsPicked in the range of LotteryTicketRange
 LotteryDraws=100
+#Number of wins
+wins=0
 #A random regerator returning  a pseudorandom set of numbers within a specific range  
 # ie. a. We call this to generate a lottery ticket that is the one we buy by calling this -(Line 30) 
 # randomGenerator(LotteryTicketRange, NumberOfLotteries)))) were LotteryTicketRange=10 and NumberOfLotteries=1
@@ -29,6 +31,6 @@ def draw(lotteryDaw,MyLottery):
 #Select my random ticket, draw the winning lotteries for "LotterDraws" times and compare
 #the results
 for draws in range(0,LotteryDraws,1):
+	myLottery=randomGenerator(LotteryTicketRange, NumberOfLotteries)
 	print ("Draw number %d and result is %s " \
-		%((draws+1),draw(randomGenerator(LotteryTicketRange, LotteryTicketsPicked),\
-			randomGenerator(LotteryTicketRange, NumberOfLotteries))))
+		%((draws+1),draw(randomGenerator(LotteryTicketRange, LotteryTicketsPicked),	randomGenerator(LotteryTicketRange, NumberOfLotteries))))
