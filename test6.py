@@ -1,16 +1,16 @@
 import numpy as nm
 import pandas as pd
 import matplotlib.pyplot as plt
-#Load data
+#Load data (and skip the first 3 rows i.e the header)
 stationData = pd.read_csv('suttonboningtondata_moodle.csv',skiprows=3)
 print("############################################################################")
 print("Total number of items (rows x columns) are  : " + str(stationData.shape))
+#Find the min of the tmin comumn
 tmin= stationData["tmin"]
 del(tmin[0])
 min=min(tmin,key=lambda x:float(x)) 
 print("The min value of minimum temperature is     : " + str(min)) 
-##The Sun column is currently in hours. Recalculate this column so the values are in days (assume a day is 24 hours).
-#Re-save this file as a new filename– you may want to use numpy.savetxt, but you don’t have to.*
+#Convert Sun column in days and saved in the output file
 del((stationData["sun"][0]))
 stationData["sun"]=stationData["sun"].map(lambda sun: float(sun)/24.0)
 outputfile="output.csv"
@@ -19,6 +19,7 @@ nm.savetxt(outputfile, stationData.values, fmt='%s', delimiter=',',header=" yyyy
 print("############################################################################")
 #Plot max temperatures of 2017
 print("Max temperatures of year 2017") 
+#Create the plot 
 counter=1
 plt.figure()  
 for index in stationData.values:
@@ -31,4 +32,3 @@ plt.ylabel('TMAX')
 plt.title('Maximum Temperatures in 2017')
 plt.show()
 print("############################################################################")
-
