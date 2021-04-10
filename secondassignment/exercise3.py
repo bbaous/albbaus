@@ -1,6 +1,7 @@
 import numpy as np
 from scipy.integrate import odeint
 import matplotlib.pyplot as plt
+import math
 #This ODE model represents the dynamics of the amount of radioactive material:
 #dX/dt=r-bX
 #X(t) is amount of radioactive material (e.g. in Bq)
@@ -23,7 +24,6 @@ tmax=5
 numOfsamples=tmax/dt
 # time points
 t = np.linspace(0,tmax,num=int(numOfsamples))
-print(t)
 # solve ODE
 x = odeint(model,x0,t)
 
@@ -40,12 +40,19 @@ tmax=5
 numOfsamples=tmax/dt
 # time points
 t = np.linspace(0,tmax,num=int(numOfsamples))
-print(t)
 # solve ODE
 x = odeint(model,x0,t)
 
+X = np.zeros(int(tmax/dt))
+X[0] = x0
+for n in range(int(tmax/dt)-1):
+    print(str(n)+" and  "+str(X[n]) + "  "+str(t[n]))
+    X[n+1] = X[n]*K*math.exp(r*t[n])/(K+X[n]*(math.exp(r*t[n])-1))
+
+
 # plot results
-plt.plot(t,x,'b:',label='dt=01')
+plt.plot(t,x,'b:',label='dt=0.1')
+plt.plot(t,X,'g:',label='dt=0.1')
 plt.xlabel('time')
 plt.ylabel('x(t)')
 plt.legend(['dt=0.1','dt=0.5'],loc='lower right')
