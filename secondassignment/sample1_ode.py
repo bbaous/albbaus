@@ -3,7 +3,7 @@ from scipy.integrate import odeint
 import matplotlib.pyplot as plt
 
 # function that returns dz/dt
-def model2(z,t,u):
+def model(z,t,u):
     x = z[0]
     y = z[1]
     dxdt = (-x + u)/2.0
@@ -11,7 +11,7 @@ def model2(z,t,u):
     dzdt = [dxdt,dydt]
     return dzdt
 
-def model(x,t):
+def model2(x,t):
     print(b)
     print(r)
     dxdt = r -b*x
