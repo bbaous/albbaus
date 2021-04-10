@@ -49,11 +49,10 @@ for n in range(int(tmax/dt)-1):
     print(str(n)+" and  "+str(X[n]) + "  "+str(t[n]))
     X[n+1] = X[n]*K*math.exp(r*t[n])/(K+X[n]*(math.exp(r*t[n])-1))
 
-
 # plot results
 plt.plot(t,x,'b:',label='dt=0.1')
 plt.plot(t,X,'g:',label='dt=0.1')
 plt.xlabel('time')
 plt.ylabel('x(t)')
-plt.legend(['dt=0.1','dt=0.5'],loc='lower right')
+plt.legend(['dt=0.1','dt=0.5',"Exact Sol/dt=0.5"],loc='lower right')
 plt.show()
