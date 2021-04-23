@@ -39,16 +39,20 @@ for j in t:
 XE_05 = np.zeros(int(tmax/dt))
 XE_05[0] = x0
 for n in range(int(tmax/dt)-1):
-    XE_05[n+1] = XE_05[n]*K*math.exp(r*t[n])/(K+XE_05[n]*(math.exp(r*t[n])-1))
+    XE_05[n+1] = x0*K*math.exp(r*t[n])/(K+x0*(math.exp(r*t[n])-1))
 
+EXACT_SOLUTION = x0*K*math.exp(r*5)/(K+x0*(math.exp(r*5)))
+ODE= r*XE_05[4]*(1-XE_05[4]/K)*dt
+Relative_Error = 100 * ((EXACT_SOLUTION - ODE) / EXACT_SOLUTION)
+print ("Retative error (dt=0.5): " +str(Relative_Error))
 
 #plot results
 plt.plot(t,x05,'r')
 plt.plot(t,XE_05,'g',label='dt=0.1')
 plt.xlabel('time')
 plt.ylabel('x(t)')
-plt.legend(['dt=0.5',"Exact Sol/dt=0.5"],loc='lower right')
-plt.show()
+#plt.legend(['dt=0.5',"Exact Sol/dt=0.5"],loc='upper left')
+#plt.show()
 
 
 
@@ -75,14 +79,19 @@ for j in t:
 XE_01 = np.zeros(int(tmax/dt))
 XE_01[0] = x0
 for n in range(int(tmax/dt)-1):
-    XE_01[n+1] = XE_01[n]*K*math.exp(r*t[n])/(K+XE_01[n]*(math.exp(r*t[n])-1))
+    XE_01[n+1] = x0*K*math.exp(r*t[n])/(K+x0*(math.exp(r*t[n])-1))
+
+EXACT_SOLUTION = x0*K*math.exp(r*5)/(K+x0*(math.exp(r*5)))
+ODE= r*XE_01[4]*(1-XE_01[4]/K)*dt
+Relative_Error = 100 * ((EXACT_SOLUTION - ODE) / EXACT_SOLUTION)
+print ("Retative error (dt=0.1): " +str(Relative_Error))
 
 #plot results
-plt.plot(t,X01,'r')
-plt.plot(t,XE_01,'g',label='dt=0.1')
+plt.plot(t,X01,'b')
+plt.plot(t,XE_01,'y',label='dt=0.1')
 plt.xlabel('time')
 plt.ylabel('x(t)')
-plt.legend(['dt=0.1',"Exact Sol/dt=0.1"],loc='lower right')
+plt.legend(['ODE dt=0.1',"Exact Sol/dt=0.1",'ODE dt=0.5',"Exact Sol/dt=0.5"],loc='lower right')
 plt.show()
 
 

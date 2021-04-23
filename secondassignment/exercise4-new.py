@@ -19,19 +19,19 @@ X = np.zeros(numOfsamples)
 X[0] = x0
 for n in range(int(numOfsamples)-1):
     print(str(n)+" and  X : "+str(X[n]) + "  "+str(t[n]))
-    X[n+1] = X[n]*K*math.exp(r*t[n])/(K+X[n]*(math.exp(r*t[n])-1))
+    X[n+1] = x0*K*math.exp(r*t[n])/(K+x0*(math.exp(r*t[n])-1))
 
 X_100 = np.zeros(numOfsamples)
 X_100[0] = x0_100
 for n in range(int(numOfsamples)-1):
     print(str(n)+" and  X_100 : "+str(X_100[n]) + "  "+str(t[n]))
-    X_100[n+1] = X_100[n]*K*math.exp(r*t[n])/(K+X_100[n]*(math.exp(r*t[n])-1))
+    X_100[n+1] = x0_100*K*math.exp(r*t[n])/(K+x0_100*(math.exp(r*t[n])-1))
 
 X_200 = np.zeros(numOfsamples)
 X_200[0] = x0_200
 for n in range(int(numOfsamples)-1):
     print(str(n)+" and  X_200 : "+str(X_200[n]) + "  "+str(t[n]))
-    X_200[n+1] = X_200[n]*K*math.exp(r*t[n])/(K+X_200[n]*(math.exp(r*t[n])-1))
+    X_200[n+1] = x0_200*K*math.exp(r*t[n])/(K+x0_200*(math.exp(r*t[n])-1))
 
 # plot results
 plt.plot(t,X,'b')
