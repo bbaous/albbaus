@@ -9,7 +9,7 @@ def model(x,t):
     K=100
     if t>10:
         K=20
-    dxdt = r*x*(1-x/K)
+    dxdt = r*x*(1-x/K)*dt
     print("Time is : "+str(t)+" and  "+str(dxdt)+ " k is "+str(K))
     return dxdt
 # initial conditions for x0,r and 
