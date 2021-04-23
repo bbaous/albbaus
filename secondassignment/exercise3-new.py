@@ -14,7 +14,7 @@ import math
 
 
 def model(x,t):
-    dxdt = r*x*(1-x/K)
+    dxdt = r*x*(1-x/K)*dt
     return dxdt
 
 # initial conditions
